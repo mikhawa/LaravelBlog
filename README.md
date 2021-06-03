@@ -24,8 +24,9 @@ dans la console:
 
     ..\LaravelBlog\ code .
 
-Quelques extensions pour VCS :
-- Laravel Blade Snippets    
+Quelques extensions pour VSC :
+- Laravel Blade Snippets
+- PHP Namespace Resolver    
 
 ### Installation de cocur/slugify
 
@@ -50,6 +51,27 @@ Pour utiliser les commandes en mode console:
 ### Lancement du serveur
 
     php artisan serve
+
+### Paramètres de connexion
+
+dans .env
+
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=laravelblog
+    DB_USERNAME=root
+    DB_PASSWORD=
+
+puis dans `routes/web.php`
+
+    Route::get('/env',function(){
+        dd(env('DB_DATABASE'));
+    });
+
+Ce qui nous affiche lorsque l'on clique sur http://127.0.0.1:8000/env
+
+"laravelblog"
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
