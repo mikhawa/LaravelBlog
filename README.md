@@ -1,3 +1,26 @@
+# LaravelBlog
+
+Version 8 de Laravel pour suivre le tuto version blog de https://www.udemy.com/course/le-guide-de-laravel-8
+
+### Cloner le projet
+
+dans la console
+
+    clone https://github.com/mikhawa/LaravelBlog.git
+
+puis installer les dépendances depuis la console
+
+    ..\LaravelBlog\composer install
+
+### Ouvrir le projet dans Virtual Studio Code
+
+dans la console:
+
+    ..\LaravelBlog\ code .
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
