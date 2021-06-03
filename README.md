@@ -2,6 +2,12 @@
 
 Version 8 de Laravel pour suivre le tuto version blog de https://www.udemy.com/course/le-guide-de-laravel-8
 
+## Pour créer un nouveau projet
+
+dans la console (le dernier paramètre est le dossier créé pour le projet)
+
+    composer create-project --prefer-dist laravel/laravel LaravelBlog
+
 ### Cloner le projet
 
 dans la console
@@ -17,6 +23,20 @@ puis installer les dépendances depuis la console
 dans la console:
 
     ..\LaravelBlog\ code .
+
+### Installation de cocur/slugify
+
+Pour les slugs, dans la console
+
+    composer require cocur/slugify
+
+Pour supprimer une dépendance
+
+    composer remove cocur/slugify
+
+Pour mettre à jour les dépendances
+
+    composer update
 
 
 
