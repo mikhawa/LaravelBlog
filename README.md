@@ -24,6 +24,9 @@ dans la console:
 
     ..\LaravelBlog\ code .
 
+Quelques extensions pour VCS :
+- Laravel Blade Snippets    
+
 ### Installation de cocur/slugify
 
 Pour les slugs, dans la console
