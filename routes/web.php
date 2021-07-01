@@ -26,3 +26,8 @@ Route::get('/hello',function(){
 });
 
 Route::redirect('/redirect','/hello');
+
+Route::any('/tous',function(){
+    return "Est accepté pour toutes les méthodes
+            get, post, put, delete, etc...";
+});
