@@ -120,6 +120,22 @@ dans `routes/web.php`
         return "$author a écrit un commentaire sur l'article numéro : $id";
     });
 
+Pour créer un préfixe de route, on utilise `prefix` et `group`, et on met ensuite nos routes dedans :
+
+dans `routes/web.php`  
+
+    Route::prefix('administration')->group(function(){
+        Route::get('user',function(){
+            return "Gestion des utilisateurs";
+        });
+        Route::get('articles',function(){
+            return "Gestion des articles";
+        });
+        Route::get('comment',function(){
+            return "Gestion des commentaires";
+        });
+    });
+    
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 

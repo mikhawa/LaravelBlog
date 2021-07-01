@@ -39,3 +39,15 @@ Route::get('/art/{id}',function($id){
 Route::get('/art/{id}/comment/{author?}',function($id, $author = 'Anonyme'){
     return "$author a écrit un commentaire sur l'article numéro : $id";
 });
+
+Route::prefix('administration')->group(function(){
+    Route::get('user',function(){
+        return "Gestion des utilisateurs";
+    });
+    Route::get('articles',function(){
+        return "Gestion des articles";
+    });
+    Route::get('comment',function(){
+        return "Gestion des commentaires";
+    });
+});
