@@ -51,3 +51,10 @@ Route::prefix('administration')->group(function(){
         return "Gestion des commentaires";
     });
 });
+
+Route::get('/json',function(){
+    return response()->json([
+        'name'=>"Michaël",
+        'age'=>44,
+    ]);
+});

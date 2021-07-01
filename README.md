@@ -148,7 +148,17 @@ dans `routes/web.php`
     });
     ...
 
-    
+Pour envoyer du json:
+
+dans `routes/web.php` 
+
+    Route::get('/json',function(){
+        return response()->json([
+            'name'=>"Michaël",
+            'age'=>44,
+        ]);
+    });
+
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
