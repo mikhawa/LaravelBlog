@@ -73,7 +73,7 @@ Ce qui nous affiche lorsque l'on clique sur http://127.0.0.1:8000/env
 
 "laravelblog"
 
-Le `function(){}` est une fonction de `closure`
+- Le `function(){}` est une fonction de `closure`
 
 Pour être certain que la configuration du .env soit mis à jour, vous pouvez utiliser la commande:
 
@@ -112,7 +112,7 @@ dans `routes/web.php`
         return $id;
     });    
 
-Pour récupérer des variables de l'URL mais permettre une optionelle `{var?}` et la variable a une valeur par défat dans le closure :
+Pour récupérer des variables de l'URL mais permettre une optionelle `{var?}` et la variable a une valeur par défaut dans le closure :
 
 dans `routes/web.php`    
 
@@ -135,6 +135,19 @@ dans `routes/web.php`
             return "Gestion des commentaires";
         });
     });
+
+### Les réponses
+
+Pour envoyer directement une `response` depuis la route :
+
+dans `routes/web.php`  
+
+    ...
+    Route::get('/hello',function(){
+        return response("Hello World",202);
+    });
+    ...
+
     
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>

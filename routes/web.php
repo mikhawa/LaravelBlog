@@ -22,7 +22,7 @@ Route::get('/env',function(){
 });
 
 Route::get('/hello',function(){
-    return "Hello World";
+    return response("Hello World",202);
 });
 
 Route::redirect('/redirect','/hello');
