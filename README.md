@@ -104,6 +104,22 @@ dans `routes/web.php`
                 get, post, put, delete, etc...";
     });
 
+Pour récupérer une variable de l'URL:
+
+dans `routes/web.php`
+
+    Route::get('/art/{id}',function($id){
+        return $id;
+    });    
+
+Pour récupérer des variables de l'URL mais permettre une optionelle `{var?}` et la variable a une valeur par défat dans le closure :
+
+dans `routes/web.php`    
+
+    Route::get('/art/{id}/comment/{author?}',function($id, $author = 'Anonyme'){
+        return "$author a écrit un commentaire sur l'article numéro : $id";
+    });
+
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 

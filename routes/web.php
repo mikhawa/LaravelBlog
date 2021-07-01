@@ -32,6 +32,10 @@ Route::any('/tous',function(){
             get, post, put, delete, etc...";
 });
 
-Route::any('/art/{id}',function($id){
+Route::get('/art/{id}',function($id){
     return $id;
+});
+
+Route::get('/art/{id}/comment/{author?}',function($id, $author = 'Anonyme'){
+    return "$author a écrit un commentaire sur l'article numéro : $id";
 });
