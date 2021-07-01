@@ -73,6 +73,8 @@ Ce qui nous affiche lorsque l'on clique sur http://127.0.0.1:8000/env
 
 "laravelblog"
 
+Le `function(){}` est une fonction de `closure`
+
 Pour être certain que la configuration du .env soit mis à jour, vous pouvez utiliser la commande:
 
     php artisan config:clear
@@ -92,7 +94,7 @@ Pour une redirection
 dans `routes/web.php`
 
     Route::redirect('/redirect','/hello');
-    
+
 
 
 
