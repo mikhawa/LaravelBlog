@@ -18,5 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('/env',function(){
-dd(env('DB_DATABASE'));
+    dd(env('DB_DATABASE'));
+});
+
+Route::get('/hello',function(){
+    return "Hello World";
 });

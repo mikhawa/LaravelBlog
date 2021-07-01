@@ -77,6 +77,15 @@ Pour être certain que la configuration du .env soit mis à jour, vous pouvez ut
 
     php artisan config:clear
 
+### Les routes
+
+Pour envoyer un simple texte (ou number)
+
+dans `routes/web.php`
+
+    Route::get('/hello',function(){
+        return "Hello World";
+    });
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
