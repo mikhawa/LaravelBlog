@@ -24,3 +24,5 @@ Route::get('/env',function(){
 Route::get('/hello',function(){
     return "Hello World";
 });
+
+Route::redirect('/redirect','/hello');
