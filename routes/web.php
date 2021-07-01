@@ -31,3 +31,7 @@ Route::any('/tous',function(){
     return "Est accepté pour toutes les méthodes
             get, post, put, delete, etc...";
 });
+
+Route::any('/art/{id}',function($id){
+    return $id;
+});
