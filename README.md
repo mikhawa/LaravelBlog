@@ -163,7 +163,7 @@ dans `routes/web.php`
 
 Ou "views" qu'on trouve dans le dossier `resources/views`
 
-On va utiliser Blade comme moteur de template.
+On va utiliser Blade comme moteur de template. Il suffira d'écrire le nom du fichier suivi de `.blade.php`
 
 On crée un fichier vierge dans `resources/views` que l'on nomme `testview.blade.php`, on y ajoute une ligne de texte comme
 
@@ -177,6 +177,22 @@ Puis dans `routes/web.php`
     });
 
 On peut l'afficher en allant à cette URL : http://127.0.0.1:8000/testview
+
+#### Pour mettre les vues dans des sous-dossier : 
+
+On crée un dossier `folder` dans `resources/views` puis on crée  `testview2.blade.php` dedans, on y ajoute une ligne de texte comme
+
+    Vue dans un dossier (folder)
+
+
+Puis dans `routes/web.php`, on va utiliser le . dans le retour de view() pour indiquer qu'on est dans un dossier
+
+    Route::get('/testviewinfolder', function () {
+        return view('folder.testview2');
+    });
+
+On peut l'afficher en allant à cette URL : http://127.0.0.1:8000/testviewinfolder
+
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>

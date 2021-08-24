@@ -21,6 +21,10 @@ Route::get('/testview', function () {
     return view('testview');
 });
 
+Route::get('/testviewinfolder', function () {
+    return view('folder.testview2');
+});
+
 Route::get('/env',function(){
     dd(env('DB_DATABASE'));
 });
