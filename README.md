@@ -165,6 +165,19 @@ Ou "views" qu'on trouve dans le dossier `resources/views`
 
 On va utiliser Blade comme moteur de template.
 
+On crée un fichier vierge dans `resources/views` que l'on nomme `testview.blade.php`, on y ajoute une ligne de texte comme
+
+    Affichage de testview
+
+
+Puis dans `routes/web.php`
+
+    Route::get('/testview', function () {
+        return view('testview');
+    });
+
+On peut l'afficher en allant à cette URL : http://127.0.0.1:8000/testview
+
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 

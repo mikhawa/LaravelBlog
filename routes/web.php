@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/testview', function () {
+    return view('testview');
+});
+
 Route::get('/env',function(){
     dd(env('DB_DATABASE'));
 });
