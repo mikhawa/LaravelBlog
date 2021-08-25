@@ -21,6 +21,12 @@ Route::get('/testview', function () {
     return view('testview');
 });
 
+Route::get('/testviews/{id}', function ($id) {
+    return view('testviews',[
+        'id' => $id
+    ]);
+});
+
 Route::get('/testviewinfolder', function () {
     return view('folder.testview2');
 });

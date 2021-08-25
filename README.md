@@ -193,6 +193,24 @@ Puis dans `routes/web.php`, on va utiliser le . dans le retour de view() pour in
 
 On peut l'afficher en allant à cette URL : http://127.0.0.1:8000/testviewinfolder
 
+#### Pour passer une variabler à la vue
+
+dans `routes/web.php` 
+
+    Route::get('/testviews/{id}', function ($id) {
+        return view('testviews',[
+            'id' => $id
+        ]);
+    });
+
+Puis on crée `testviews.blade.php` contenant
+
+    {{ $id }}
+
+On peut l'afficher en allant à cette URL : http://127.0.0.1:8000/testviews/8
+
+
+
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
