@@ -235,6 +235,33 @@ on modifie le fichier `testview.blade.php` et on inclu la navbar avec `@include(
     </body>
     </html>
 
+#### Héritage des vues
+
+On crée `base.blade.php` dans view avec l'include, mais également le champs `@yield('content')` que l'on pourra surcharger:
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Base</title>
+    </head>
+    <body>
+        @include('navbar')
+        @yield('content')
+    </body>
+    </html>
+
+Puis dans `testview.blade.php` on va étendre `@extends('base')` base.blade.php puis remplir le `@yield('content')` on utilisant les commandes `@section('content')` et `@endsection` ou `@stop` contenant
+
+    @extends('base')
+
+    @section('content')
+        <p>Du texte</p>
+    @endsection
+
+
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
