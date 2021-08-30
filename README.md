@@ -209,7 +209,31 @@ Puis on crée `testviews.blade.php` contenant
 
 On peut l'afficher en allant à cette URL : http://127.0.0.1:8000/testviews/8
 
+#### Pour importer un fichier dans un fichier blade
 
+On crée un fichier `navbar.blade.php` à la racine de view contenant
+
+    <ul>
+        <li>Lien 1</li>
+        <li>Lien 2</li>
+        <li>Lien 3</li>
+    </ul>
+
+on modifie le fichier `testview.blade.php` et on inclu la navbar avec `@include('navbar')` contenant
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>testview</title>
+    </head>
+    <body>
+        <h1>tesview</h1>
+        <nav>@include('navbar')</nav>
+    </body>
+    </html>
 
 
 
