@@ -278,6 +278,12 @@ On peut directement faire du php dans blade en utilisant `@php` et `@endphp` !
         @endphp</p>
     @endsection
 
+### Les modèles
+
+Ils se trouvent dans `app/Models`.
+
+Il y a un modèle par défaut: `User.php`
+
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
