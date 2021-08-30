@@ -284,7 +284,73 @@ Ils se trouvent dans `app/Models`.
 
 Il y a un modèle par défaut: `User.php`
 
+    <?php
 
+    namespace App\Models;
+
+    use Illuminate\Contracts\Auth\MustVerifyEmail;
+    use Illuminate\Database\Eloquent\Factories\HasFactory;
+    use Illuminate\Foundation\Auth\User as Authenticatable;
+    use Illuminate\Notifications\Notifiable;
+
+    class User extends Authenticatable
+    {
+        use HasFactory, Notifiable;
+
+        /**
+         * The attributes that are mass assignable. 
+         * Champs dans la DB
+         *
+         * @var array
+         */
+        protected $fillable = [
+            'name',
+            'email',
+            'password',
+        ];
+
+        /**
+         * The attributes that should be hidden for arrays.
+         * Champs cachés
+         *
+         * @var array
+         */
+        protected $hidden = [
+            'password',
+            'remember_token',
+        ];
+
+        /**
+         * The attributes that should be cast to native types.
+         * Champs typés
+         *
+         * @var array
+         */
+        protected $casts = [
+            'email_verified_at' => 'datetime',
+        ];
+    }
+
+
+#### Pour créer un modèle
+
+On va taper dans la console :
+
+    php artisan make:model Cat
+
+Le modèle est généré dans `app/Models` et se nomme `Cat.php`
+
+    <?php
+
+    namespace App\Models;
+
+    use Illuminate\Database\Eloquent\Factories\HasFactory;
+    use Illuminate\Database\Eloquent\Model;
+
+    class Cat extends Model
+    {
+        use HasFactory;
+    }
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
