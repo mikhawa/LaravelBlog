@@ -261,6 +261,22 @@ Puis dans `testview.blade.php` on va étendre `@extends('base')` base.blade.php 
         <p>Du texte</p>
     @endsection
 
+On peut l'afficher en allant à cette URL : http://127.0.0.1:8000/testview
+
+#### Faire du PHP dans Blade
+
+On peut directement faire du php dans blade en utilisant `@php` et `@endphp` !
+
+    @extends('base')
+
+    @section('content')
+        <p>Du texte</p>
+        <p>@php
+            for($i=1;$i<=5;$i++){
+                echo "$i ";
+            }
+        @endphp</p>
+    @endsection
 
 
 
