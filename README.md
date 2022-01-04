@@ -416,6 +416,8 @@ Puis on va réutiliser `Tinker`:
     $cat;
     $cat->save();
 
+L'entrée sera insérée dans la table `cats`
+
 Pour créer le modèle Dog et sa migration plus rapidement en une action:
 
     php artisan make:model Dog -m
@@ -423,6 +425,20 @@ Pour créer le modèle Dog et sa migration plus rapidement en une action:
 puis
 
     php artisan migrate
+
+Pour annuler une migration (par rapport au champs `batch` de la table `migrations`)
+
+    php artisan migrate:rollback
+
+Pour supprimer toutes les tables :
+
+    php artisan migrate:reset
+
+Pour actualiser toutes les tables avec les migrations :
+
+    php artisan migrate:refresh
+
+! Les données sont effacées
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
