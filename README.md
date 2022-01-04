@@ -25,8 +25,9 @@ dans la console:
     ..\LaravelBlog\ code .
 
 Quelques extensions pour VSC :
-- Laravel Blade Snippets
-- PHP Namespace Resolver    
+
+-   Laravel Blade Snippets
+-   PHP Namespace Resolver
 
 ### Installation de cocur/slugify
 
@@ -73,7 +74,7 @@ Ce qui nous affiche lorsque l'on clique sur http://127.0.0.1:8000/env
 
 "laravelblog"
 
-- Le `function(){}` est une fonction de `closure`
+-   Le `function(){}` est une fonction de `closure`
 
 Pour être certain que la configuration du .env soit mis à jour, vous pouvez utiliser la commande:
 
@@ -110,11 +111,11 @@ dans `routes/web.php`
 
     Route::get('/art/{id}',function($id){
         return $id;
-    });    
+    });
 
 Pour récupérer des variables de l'URL mais permettre une optionelle `{var?}` et la variable a une valeur par défaut dans le closure :
 
-dans `routes/web.php`    
+dans `routes/web.php`
 
     Route::get('/art/{id}/comment/{author?}',function($id, $author = 'Anonyme'){
         return "$author a écrit un commentaire sur l'article numéro : $id";
@@ -122,7 +123,7 @@ dans `routes/web.php`
 
 Pour créer un préfixe de route, on utilise `prefix` et `group`, et on met ensuite nos routes dedans :
 
-dans `routes/web.php`  
+dans `routes/web.php`
 
     Route::prefix('administration')->group(function(){
         Route::get('user',function(){
@@ -140,7 +141,7 @@ dans `routes/web.php`
 
 Pour envoyer directement une `response` depuis la route :
 
-dans `routes/web.php`  
+dans `routes/web.php`
 
     ...
     Route::get('/hello',function(){
@@ -150,7 +151,7 @@ dans `routes/web.php`
 
 Pour envoyer du json:
 
-dans `routes/web.php` 
+dans `routes/web.php`
 
     Route::get('/json',function(){
         return response()->json([
@@ -169,7 +170,6 @@ On crée un fichier vierge dans `resources/views` que l'on nomme `testview.blade
 
     Affichage de testview
 
-
 Puis dans `routes/web.php`
 
     Route::get('/testview', function () {
@@ -178,12 +178,11 @@ Puis dans `routes/web.php`
 
 On peut l'afficher en allant à cette URL : http://127.0.0.1:8000/testview
 
-#### Pour mettre les vues dans des sous-dossier : 
+#### Pour mettre les vues dans des sous-dossier :
 
-On crée un dossier `folder` dans `resources/views` puis on crée  `testview2.blade.php` dedans, on y ajoute une ligne de texte comme
+On crée un dossier `folder` dans `resources/views` puis on crée `testview2.blade.php` dedans, on y ajoute une ligne de texte comme
 
     Vue dans un dossier (folder)
-
 
 Puis dans `routes/web.php`, on va utiliser le . dans le retour de view() pour indiquer qu'on est dans un dossier
 
@@ -195,7 +194,7 @@ On peut l'afficher en allant à cette URL : http://127.0.0.1:8000/testviewinfold
 
 #### Pour passer une variabler à la vue
 
-dans `routes/web.php` 
+dans `routes/web.php`
 
     Route::get('/testviews/{id}', function ($id) {
         return view('testviews',[
@@ -298,7 +297,7 @@ Il y a un modèle par défaut: `User.php`
         use HasFactory, Notifiable;
 
         /**
-         * The attributes that are mass assignable. 
+         * The attributes that are mass assignable.
          * Champs dans la DB
          *
          * @var array
@@ -331,7 +330,6 @@ Il y a un modèle par défaut: `User.php`
         ];
     }
 
-
 #### Pour créer un modèle
 
 On va taper dans la console :
@@ -352,6 +350,24 @@ Le modèle est généré dans `app/Models` et se nomme `Cat.php`
         use HasFactory;
     }
 
+### tinker
+
+Va permettre de tester notre application via artisan
+
+    php artisan tinker
+
+    $cat = new Cat();
+    $cat->name = "lulu";
+    $cat->age = 5;
+    $cat;
+    $cat->save();
+
+On obtiendra une erreur car nous n'avons pas de migrations
+
+    exit;
+
+### Les migrations
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
@@ -365,13 +381,13 @@ Le modèle est généré dans `app/Models` et se nomme `Cat.php`
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   [Simple, fast routing engine](https://laravel.com/docs/routing).
+-   [Powerful dependency injection container](https://laravel.com/docs/container).
+-   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+-   Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+-   Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+-   [Robust background job processing](https://laravel.com/docs/queues).
+-   [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
@@ -387,17 +403,17 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 
 ### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+-   **[Vehikl](https://vehikl.com/)**
+-   **[Tighten Co.](https://tighten.co)**
+-   **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+-   **[64 Robots](https://64robots.com)**
+-   **[Cubet Techno Labs](https://cubettech.com)**
+-   **[Cyber-Duck](https://cyber-duck.co.uk)**
+-   **[Many](https://www.many.co.uk)**
+-   **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+-   **[DevSquad](https://devsquad.com)**
+-   **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+-   **[OP.GG](https://op.gg)**
 
 ## Contributing
 
