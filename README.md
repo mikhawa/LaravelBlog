@@ -59,7 +59,7 @@ dans .env
 
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
-    DB_PORT=3306
+    DB_PORT=3307
     DB_DATABASE=laravelblog
     DB_USERNAME=root
     DB_PASSWORD=
@@ -367,6 +367,16 @@ On obtiendra une erreur car nous n'avons pas de migrations
     exit;
 
 ### Les migrations
+
+Dans `database/migrations` il y a déjà des fichiers de migrations liés à `users`.
+
+Pour migrer:
+
+    php artisan migrate
+
+Pour créer un fichier de migration pour la table `cats`
+
+    php artisan make:migration create_cats_table
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
