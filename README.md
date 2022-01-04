@@ -452,6 +452,9 @@ Le contrôleur est créé dans `LaravelBlog\app\Http\Controllers\MainController.
 
 Dans `\app\Http\Controllers\MainController.php`
 
+    // Appel du contrôleur
+    use App\Http\Controllers\MainController;
+    ...
         class MainController extends Controller
     {
         // contrôleur appelé depuis web.php
@@ -469,6 +472,32 @@ Dans `routes\web.php`
 
     Route::get('/', [MainController::class, 'index']);
     Route::get('/testview', [MainController::class, 'test']);
+
+Pour avoir un contrôleur à action unique :
+
+    php artisan make:controller UniqueActionController --invokable
+
+Le fichier est créé à `app\Http\Controllers\UniqueActionController.php`
+
+        class UniqueActionController extends Controller
+    {
+        /**
+         * Handle the incoming request.
+         *
+         * @param  \Illuminate\Http\Request  $request
+         * @return \Illuminate\Http\Response
+         */
+        public function __invoke(Request $request)
+        {
+            return view('testview');
+        }
+    }
+
+Et dans `routes\web.php`
+
+    use App\Http\Controllers\UniqueActionController;
+    ...
+    Route::get('/unique', UniqueActionController::class);
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
