@@ -446,6 +446,30 @@ On supprime nos tables `cats` et `dogs` en supprimant les fichiers de migrations
 
 ### Les Controllers
 
+    php artisan make:controller MainController
+
+Le contrôleur est créé dans `LaravelBlog\app\Http\Controllers\MainController.php`
+
+Dans `\app\Http\Controllers\MainController.php`
+
+        class MainController extends Controller
+    {
+        // contrôleur appelé depuis web.php
+        public function index()
+        {
+            return view('welcome');
+        }
+        public function test()
+        {
+            return view('testview');
+        }
+    }
+
+Dans `routes\web.php`
+
+    Route::get('/', [MainController::class, 'index']);
+    Route::get('/testview', [MainController::class, 'test']);
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
