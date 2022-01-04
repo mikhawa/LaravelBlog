@@ -440,6 +440,12 @@ Pour actualiser toutes les tables avec les migrations :
 
 ! Les données sont effacées
 
+On supprime nos tables `cats` et `dogs` en supprimant les fichiers de migrations de ces 2 tables et en supprimant les 2 modèles, ensuite on migre avec
+
+    php artisan migrate
+
+### Les Controllers
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
