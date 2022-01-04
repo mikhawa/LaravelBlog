@@ -18,7 +18,7 @@ Dans `routes\web.php` nous n'avons plus que
 
 Qui appelle `app\Http\Controllers\ArticleController.php`
 
-Puis on modifie
+Puis on modifie dedans le create()
 
     /**
      * Show the form for creating a new resource.
@@ -51,3 +51,5 @@ On va créer un formulaire pour la vue `resources\views\create.blade.php`
     @endsection
 
 On peut le voir fonctionner http://127.0.0.1:8000/articles/create
+
+ICI modification du formulaire
