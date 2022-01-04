@@ -1,5 +1,7 @@
 <?php
 // Appel du contrôleur
+
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\UniqueActionController;
 use Illuminate\Support\Facades\Route;
@@ -24,8 +26,14 @@ Route::get('/', function () {
 // remplacement par le contrôleur MainController
 Route::get('/', [MainController::class, 'index']);
 Route::get('/testview', [MainController::class, 'test']);
+
 // contrôleur unique
 Route::get('/unique', UniqueActionController::class);
+
+// contrôleur ressource
+Route::resource('articles', ArticleController::class);
+
+
 /*
 // idem que pour le précédent
 Route::get('/testview', function () {

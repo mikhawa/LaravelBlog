@@ -473,7 +473,7 @@ Dans `routes\web.php`
     Route::get('/', [MainController::class, 'index']);
     Route::get('/testview', [MainController::class, 'test']);
 
-Pour avoir un contrôleur à action unique :
+#### Pour avoir un contrôleur à action unique :
 
     php artisan make:controller UniqueActionController --invokable
 
@@ -498,6 +498,26 @@ Et dans `routes\web.php`
     use App\Http\Controllers\UniqueActionController;
     ...
     Route::get('/unique', UniqueActionController::class);
+
+#### Pour avoir un contrôleur ressource :
+
+    php artisan make:controller ArticleController --resource
+
+qui nous crée `app\Http\Controllers\ArticleController.php` avec du contenu CRUD
+
+Et dans `routes\web.php`
+
+    use App\Http\Controllers\ArticleController;
+    ...
+    Route::resource('articles',ArticleController::class);
+
+On aura donc les routes `URL/articles`:
+
+comme sur cet exemple:
+
+https://laravel.com/docs/8.x/controllers#actions-handled-by-resource-controller
+
+Passage en V2 et nettoyage de code
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
