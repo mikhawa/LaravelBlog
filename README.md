@@ -378,6 +378,52 @@ Pour créer un fichier de migration pour la table `cats`
 
     php artisan make:migration create_cats_table
 
+Et dans le fichier créé `2022_01_04_121842_create_cats_table.php`:
+
+    public function up()
+    {
+        Schema::create('cats', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+        });
+    }
+
+On va rajouter les champs voulus:
+
+    public function up()
+    {
+        Schema::create('cats', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->integer('age');
+            $table->timestamps();
+        });
+    }
+
+Ensuite on va migrer ce fichier:
+
+    php artisan migrate
+
+! La table est le nom du modèle mis au pluriel !
+
+Puis on va réutiliser `Tinker`:
+
+    php artisan tinker
+
+    $cat = new Cat();
+    $cat->name = "lulu";
+    $cat->age = 5;
+    $cat;
+    $cat->save();
+
+Pour créer le modèle Dog et sa migration plus rapidement en une action:
+
+    php artisan make:model Dog -m
+
+puis
+
+    php artisan migrate
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
