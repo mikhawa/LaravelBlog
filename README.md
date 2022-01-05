@@ -94,3 +94,31 @@ Si on ne veut vérifier l'existance d'un champs
         }
         die('OK');
     }
+
+### Système de validation
+
+Pour vérifier que nos champs correspondent à ce que l'on souhaite dans `app\Http\Controllers\ArticleController.php`
+
+    public function store(Request $request)
+    {
+        $validateData = $request->validate([
+            'name' => 'required|min:5|max:255',
+            'email' => 'required|min:5|max:255|email',
+        ]);
+        // on arrive ici si les paramètres sont valides, sinon on est redirigé sur le formulaire
+
+    }
+
+En cas d'erreur, pour les afficher on met dans `resources\views\create.blade.php`
+
+    @section('content')
+
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif

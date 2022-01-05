@@ -1,6 +1,16 @@
 @extends('base')
 
 @section('content')
+
+@if($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <form action="/articles" method="POST" class="form-example">
     <!-- blade pour passer le token de sécurité @crsf -->
     @csrf

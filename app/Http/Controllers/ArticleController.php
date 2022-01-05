@@ -34,10 +34,12 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->missing('name')) {
-            die('NOT OK');
-        }
-        die('OK');
+        $validateData = $request->validate([
+            'name' => 'required|min:5|max:255',
+            'email' => 'required|min:5|max:255|email',
+        ]);
+        // on arrive ici si les paramètres sont valides
+
     }
 
     /**
