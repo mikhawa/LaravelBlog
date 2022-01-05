@@ -99,3 +99,5 @@ On click sur start puis il faut renseigner son mail
 On met le lien reçu dans `resources\views\base.blade.php`
 
 Puis on rajoute des icones là où on le souhaite, ici une petite maison sur `resources\views\include\navbar.blade.php`
+
+### La suite dans V4
