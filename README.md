@@ -109,7 +109,7 @@ Pour vérifier que nos champs correspondent à ce que l'on souhaite dans `app\Ht
 
     }
 
-En cas d'erreur, pour les afficher on met dans `resources\views\create.blade.php`
+En cas d'erreur, pour les afficher on met dans `resources\views\create.blade.php` avec une création d'une boucle tant que l'on a des erreurs
 
     @section('content')
 
@@ -122,3 +122,23 @@ En cas d'erreur, pour les afficher on met dans `resources\views\create.blade.php
             </ul>
         </div>
     @endif
+
+Pour obtenir une erreur spécifique par champs (une seule affichée):
+
+    <form action="/articles" method="POST" class="form-example">
+    <!-- blade pour passer le token de sécurité @crsf -->
+    @csrf
+    <div class="form-example">
+      <label for="name">Enter your name: </label>
+      <input type="text" name="name" id="name" required>
+      @error('name')
+      {{ $message }}
+      @enderror
+    </div>
+    <div class="form-example">
+      <label for="email">Enter your email: </label>
+      <input type="text" name="email" id="email" required>
+      @error('email')
+      {{ $message }}
+      @enderror
+    </div>

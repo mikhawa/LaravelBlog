@@ -38,7 +38,7 @@ class ArticleController extends Controller
             'name' => 'required|min:5|max:255',
             'email' => 'required|min:5|max:255|email',
         ]);
-        // on arrive ici si les paramètres sont valides
+        // on arrive ici si les paramètres sont valides, sinon on est redirigé sur le formulaire
 
     }
 
