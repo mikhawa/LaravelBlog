@@ -1,7 +1,9 @@
 @extends('base')
 
 @section('content')
-<form action="" method="get" class="form-example">
+<form action="/articles" method="POST" class="form-example">
+    <!-- blade pour passer le token de sécurité @crsf -->
+    @csrf
     <div class="form-example">
       <label for="name">Enter your name: </label>
       <input type="text" name="name" id="name" required>

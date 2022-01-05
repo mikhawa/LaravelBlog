@@ -51,5 +51,3 @@ On va créer un formulaire pour la vue `resources\views\create.blade.php`
     @endsection
 
 On peut le voir fonctionner http://127.0.0.1:8000/articles/create
-
-ICI modification du formulaire
