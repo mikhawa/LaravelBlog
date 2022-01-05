@@ -135,3 +135,28 @@ Puis dans la vue `resources\views\articles.blade.php`
     </div>
 
     @endsection
+
+##### Pour créer une pagination
+
+Dans `app\Http\Controllers\MainController.php`
+
+    ...
+    public function articles()
+    {
+        // récupération de tous les articles avec pagination
+        $articles = Article::paginate(6);
+        return view('articles', [
+            'articles' => $articles
+        ]);
+    }
+    ...
+
+Puis dans `resources\views\articles.blade.php`
+
+    ...
+    <div class="d-flex justify-content-center mt-5">
+        {{ $articles->links() }}
+    </div>
+    ...
+
+Et voici une pagination fonctionelle, mais moche ;-)
