@@ -36,4 +36,47 @@ Dans la console :
 
 #### Seeder
 
-Pour ajouter des articles à la volée
+Pour ajouter des articles à la volée dans la console :
+
+    php artisan make:seed ArticleSeeder
+
+`database\seeders\ArticleSeeder.php` est généré.
+
+Ensuite regardons la doc sur Faker : https://github.com/fzaninotto/Faker
+
+Puis dans `database\seeders\ArticleSeeder.php`
+
+    namespace Database\Seeders;
+
+    use App\Models\Article;
+    use Faker\Factory;
+    use Illuminate\Database\Seeder;
+
+    class ArticleSeeder extends Seeder
+    {
+        /**
+         * Run the database seeds.
+         *
+         * @return void
+         */
+        public function run()
+        {
+            // utilisation de faker https://github.com/fzaninotto/Faker
+            $faker = Factory::create();
+
+            for ($i = 0; $i < 26; $i++) {
+
+                Article::create([
+                    'title' => $faker->sentence(),
+                    'subtitle' => $faker->sentence(),
+                    'content' => $faker->text(600),
+                ]);
+            }
+        }
+    }
+
+Ensuite on va exécuter dans le cmd :
+
+    php artisan db:seed --class=ArticleSeeder
+
+Et 26 articles sont bien insérés
