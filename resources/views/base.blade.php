@@ -11,7 +11,7 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    @include('navbar')
+    @include('include.navbar')
 
     @yield('content')
 

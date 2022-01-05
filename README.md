@@ -63,3 +63,5 @@ Puis on change `resources\views\base.blade.php` pour y mettre la base de bootstr
 
       </body>
     </html>
+
+On met ensuite un jumbotron bootstrap dans `resources\views\home.blade.php` : https://getbootstrap.com/docs/5.1/examples/jumbotron/
