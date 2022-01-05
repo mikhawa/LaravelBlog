@@ -245,3 +245,54 @@ Dans la console:
     php artisan make:middleware AuthMiddleware
 
 `app\Http\Middleware\AuthMiddleware.php` est céé.
+
+On doit le rajouter au Kernel : `app\Http\Kernel.php`
+
+    protected $routeMiddleware = [
+        'auth' => \App\Http\Middleware\Authenticate::class,
+        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+        'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
+        'can' => \Illuminate\Auth\Middleware\Authorize::class,
+        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
+        'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
+        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'custom.auth' => \App\Http\Middleware\AuthMiddleware::class,
+    ];
+
+On modifie `app\Http\Middleware\AuthMiddleware.php`
+
+    namespace App\Http\Middleware;
+
+    use Closure;
+    use Illuminate\Http\Request;
+    use Illuminate\Support\Facades\Auth;
+
+    class AuthMiddleware
+    {
+        /**
+         * Handle an incoming request.
+         *
+         * @param  \Illuminate\Http\Request  $request
+         * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|  \Illuminate\Http\RedirectResponse)  $next
+         * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
+         */
+        public function handle(Request $request, Closure $next)
+        {
+            // si on a un utilisateur connecté
+            $user = Auth::user();
+            // sinon
+            if (!$user) {
+                return redirect("/test");
+            }
+            return $next($request);
+        }
+    }
+
+Puis on crée une route dans `routes\web.php` pour vérifier la redirection
+
+    // pour tester un middleware fait main
+    Route::get('/test3', function () {
+        return response("Hello World", 200);
+    })->middleware('custom.auth');
