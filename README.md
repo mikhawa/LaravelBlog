@@ -90,4 +90,12 @@ par
 
 On peut ensuite changer la `resources\views\include\navbar.blade.php` avec le code trouvé sur le site
 
-###
+### Fontawesome
+
+https://fontawesome.com/
+
+On click sur start puis il faut renseigner son mail
+
+On met le lien reçu dans `resources\views\base.blade.php`
+
+Puis on rajoute des icones là où on le souhaite, ici une petite maison sur `resources\views\include\navbar.blade.php`
