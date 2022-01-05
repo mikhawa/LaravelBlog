@@ -296,3 +296,5 @@ Puis on crée une route dans `routes\web.php` pour vérifier la redirection
     Route::get('/test3', function () {
         return response("Hello World", 200);
     })->middleware('custom.auth');
+
+### La suite dans la V3
