@@ -76,3 +76,11 @@ Si on ne veut récupérer que les variables POST
         // dd => dump and die
         dd($request->all());
     }
+
+Si on ne veut récupérer qu'un champs
+
+    public function store(Request $request)
+    {
+        // dd => dump and die
+        dd($request->input('email'));
+    }
