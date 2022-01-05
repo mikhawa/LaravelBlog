@@ -237,3 +237,11 @@ Dans `routes\web.php`
     Route::get('/test2', function () {
         return response("Hello World", 200);
     })->middleware('auth.basic');
+
+#### Pour créer un middleware personnel
+
+Dans la console:
+
+    php artisan make:middleware AuthMiddleware
+
+`app\Http\Middleware\AuthMiddleware.php` est céé.
