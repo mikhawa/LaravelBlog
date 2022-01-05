@@ -217,3 +217,23 @@ Dans `app\Http\Requests\ArticleRequest.php` dans la class ArticleRequest
             'email.min' => 'Le champs doit faire au moins 5 caractères',
         ];
     }
+
+### Le Middleware
+
+C'est la partie qui gère les accès HTTP.
+
+On en trouve déjà par défaut dans le dossier `app\Http\Middleware`
+
+Ils sont appelés dans le kernel : `app\Http\Kernel.php`
+
+Dans `routes\web.php`
+
+    // pour tester un middleware par défaut (guest => non connecté)
+    Route::get('/test', function () {
+        return response("Hello World", 200);
+    })->middleware('guest');
+
+    // pour tester un middleware par défaut (auth.basic => connecté basique)
+    Route::get('/test2', function () {
+        return response("Hello World", 200);
+    })->middleware('auth.basic');
