@@ -80,3 +80,58 @@ Ensuite on va exécuter dans le cmd :
     php artisan db:seed --class=ArticleSeeder
 
 Et 26 articles sont bien insérés
+
+#### Récupération des articles en base de données
+
+Dans `routes\web.php` on va créer une route pour nos articles
+
+    ...
+    Route::get('/articles', [MainController::class, 'articles']);
+
+Dans `app\Http\Controllers\MainController.php` on va créer notre méthode publique
+
+    public function articles()
+    {
+        // récupération de tous les articles
+        $articles = Article::all();
+        dd($articles);
+        return view('articles');
+    }
+
+Ensuite modification :
+
+    public function articles()
+    {
+        // récupération de tous les articles
+        $articles = Article::all();
+        return view('articles',[
+            'articles' => $articles
+        ]);
+    }
+
+Puis dans la vue `resources\views\articles.blade.php`
+
+    @extends('base')
+
+    @section('content')
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <h1 class="display-2 text-center">Nos articles</h1>
+        <div class="articles row justify-content-center">
+            @foreach($articles as $article)
+                <div class="col-md-6">
+                    <div class="card my-3">
+                        <div class="card-body">
+                        <h5 class="card-title">{{ $article->title }}</h5>
+                        <p class="card-text">{{ $article->subtitle }}</p>
+                        <a href="#" class="btn btn-primary">
+                            Lire la suite
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+
+    @endsection
