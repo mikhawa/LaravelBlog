@@ -84,3 +84,13 @@ Si on ne veut récupérer qu'un champs
         // dd => dump and die
         dd($request->input('email'));
     }
+
+Si on ne veut vérifier l'existance d'un champs
+
+    public function store(Request $request)
+    {
+        if($request->missing('name')){
+            die('NOT OK');
+        }
+        die('OK');
+    }
