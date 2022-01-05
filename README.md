@@ -51,3 +51,28 @@ On va créer un formulaire pour la vue `resources\views\create.blade.php`
     @endsection
 
 On peut le voir fonctionner http://127.0.0.1:8000/articles/create
+
+On va installer le token dans le formulaire de `resources\views\create.blade.php`
+
+    ...
+    <form action="/articles" method="POST" class="form-example">
+    <!-- blade pour passer le token de sécurité @crsf -->
+    @csrf
+    <div class="form-example">
+    ...
+
+Puis on va agir dans `app\Http\Controllers\ArticleController.php` lors de l'envoie du POST avec la commande `dd()`, littéralement dump and die
+
+    public function store(Request $request)
+    {
+        // dd => dump and die
+        dd($request);
+    }
+
+Si on ne veut récupérer que les variables POST
+
+    public function store(Request $request)
+    {
+        // dd => dump and die
+        dd($request->all());
+    }

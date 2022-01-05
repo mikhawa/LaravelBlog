@@ -35,7 +35,7 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         // dd => dump and die
-        dd($request);
+        dd($request->all());
     }
 
     /**
