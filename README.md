@@ -142,3 +142,59 @@ Pour obtenir une erreur spécifique par champs (une seule affichée):
       {{ $message }}
       @enderror
     </div>
+
+#### Créer des request personnalisés
+
+dans la console:
+
+    php artisan make:request ArticleRequest
+
+Un fichier est créé `app\Http\Requests\ArticleRequest.php`, et dedans nous allons indiquer les règles et permettre l'autorisation:
+
+    class ArticleRequest extends FormRequest
+    {
+        /**
+         * Determine if the user is authorized to make this request.
+         *
+         * @return bool
+         */
+        public function authorize()
+        {
+            // on autorise
+            return true;
+        }
+
+        /**
+         * Get the validation rules that apply to the request.
+         *
+         * @return array
+         */
+        public function rules()
+        {
+            // on met nos règles
+            return [
+                'name' => 'required|min:5|max:255',
+                'email' => 'required|min:5|max:255|email',
+            ];
+        }
+    }
+
+Et dans `app\Http\Controllers\ArticleController.php`
+
+    ...
+    use App\Http\Requests\ArticleRequest;
+    ...
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     *
+     * on importe ArticleRequest
+     */
+    public function store(ArticleRequest $request)
+    {
+        $validated = $request->validate();
+        // on arrive ici si les paramètres sont valides, sinon on est redirigé sur le formulaire
+
+    }

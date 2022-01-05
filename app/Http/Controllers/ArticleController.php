@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -31,13 +32,12 @@ class ArticleController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     * 
+     * on importe ArticleRequest
      */
-    public function store(Request $request)
+    public function store(ArticleRequest $request)
     {
-        $validateData = $request->validate([
-            'name' => 'required|min:5|max:255',
-            'email' => 'required|min:5|max:255|email',
-        ]);
+        $validated = $request->validate();
         // on arrive ici si les paramètres sont valides, sinon on est redirigé sur le formulaire
 
     }
