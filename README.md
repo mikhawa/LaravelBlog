@@ -198,3 +198,22 @@ Et dans `app\Http\Controllers\ArticleController.php`
         // on arrive ici si les paramètres sont valides, sinon on est redirigé sur le formulaire
 
     }
+
+#### Créer des erreurs personnalisées
+
+Dans `app\Http\Requests\ArticleRequest.php` dans la class ArticleRequest
+
+    /**
+     * Get the validation errors messages
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.required' => 'Le champs name est requis',
+            'email.required' => 'Le mail est requis',
+            'email.email' => 'Le mail n\'est pas valide',
+            'email.min' => 'Le champs doit faire au moins 5 caractères',
+        ];
+    }

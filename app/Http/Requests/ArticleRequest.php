@@ -30,4 +30,19 @@ class ArticleRequest extends FormRequest
             'email' => 'required|min:5|max:255|email',
         ];
     }
+
+    /**
+     * Get the validation errors messages
+     * 
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.required' => 'Le champs name est requis',
+            'email.required' => 'Le mail est requis',
+            'email.email' => 'Le mail n\'est pas valide',
+            'email.min' => 'Le champs doit faire au moins 5 caractères',
+        ];
+    }
 }
