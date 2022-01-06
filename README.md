@@ -222,3 +222,5 @@ Pour ajouter page suivante dans `resources\views\vendor\pagination\custom.blade.
             <li class="page-item disabled"><span class="page-link">Suivant <i class="fas fa-arrow-right"></i></span></li>
         @endif
     ...
+
+### Voir la suite dans la V5
