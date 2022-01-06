@@ -13,8 +13,8 @@ class MainController extends Controller
     }
     public function articles()
     {
-        // récupération de tous les articles avec pagination
-        $articles = Article::paginate(6);
+        // récupération de tous les articles avec pagination (paginate(int nombre de pages))
+        $articles = Article::paginate(4);
         return view('articles', [
             'articles' => $articles
         ]);

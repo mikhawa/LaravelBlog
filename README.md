@@ -136,7 +136,7 @@ Puis dans la vue `resources\views\articles.blade.php`
 
     @endsection
 
-##### Pour créer une pagination
+#### Pour créer une pagination
 
 Dans `app\Http\Controllers\MainController.php`
 
@@ -161,7 +161,7 @@ Puis dans `resources\views\articles.blade.php`
 
 Et voici une pagination fonctionelle.
 
-##### Pour créer une pagination personnalisée
+#### Pour créer une pagination personnalisée
 
 On va créer une vue pour cette pagination `resources\views\vendor\pagination\custom.blade.php`
 
@@ -200,3 +200,25 @@ Documentation : https://laravel.com/docs/8.x/pagination
         @endforeach
     </ul>
     @endif
+
+Pour ajouter page précédente dans `resources\views\vendor\pagination\custom.blade.php`
+
+    ...
+    {{-- bouton précédent --}}
+        @if ($paginator->onFirstPage())
+            <li class="page-item disabled"><span class="page-link"><i class="fas fa-arrow-left"></i> Précédent</span></li>
+        @else
+            <li class="page-item"><a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev"><i class="fas fa-arrow-left"></i> Précédent</a></li>
+        @endif
+    ...
+
+Pour ajouter page suivante dans `resources\views\vendor\pagination\custom.blade.php`
+
+    ...
+     {{-- bouton suivant --}}
+        @if ($paginator->hasMorePages())
+            <li class="page-item"><a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next">Suivant <i class="fas fa-arrow-right"></i></a></li>
+        @else
+            <li class="page-item disabled"><span class="page-link">Suivant <i class="fas fa-arrow-right"></i></span></li>
+        @endif
+    ...
