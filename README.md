@@ -159,4 +159,44 @@ Puis dans `resources\views\articles.blade.php`
     </div>
     ...
 
-Et voici une pagination fonctionelle, mais moche ;-)
+Et voici une pagination fonctionelle.
+
+##### Pour créer une pagination personnalisée
+
+On va créer une vue pour cette pagination `resources\views\vendor\pagination\custom.blade.php`
+
+Et l'appeler dans `resources\views\articles.blade.php`
+
+    <div class="d-flex justify-content-center mt-5">
+        {{ $articles->links('vendor.pagination.custom') }}
+    </div>
+
+Dans cette vue on va mettre la pagination simple avec bootstrap en utilisant pagination (les noms des variables $paginator et $element sont imposés)
+
+Documentation : https://laravel.com/docs/8.x/pagination
+
+    {{-- si on a des pages --}}
+    @if ($paginator->hasPages())
+    <ul class="pagination">
+        @foreach ($elements as $element)
+            @if (is_string($element))
+                <li class="page-item disabled"><span class="page-link">{{ $element }}</span></li>
+            @endif
+
+            @if (is_array($element))
+                @foreach ($element as $page => $url)
+                    {{-- var_dump($page) --}}
+
+                    {{-- si la page est celle sélectionnée --}}
+                    @if ($page == $paginator->currentPage())
+                        <li class="page-item active my-active"><span class="page-link">{{ $page }}</span></li>
+                    @else
+                        <li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
+                    @endif
+
+                @endforeach
+
+            @endif
+        @endforeach
+    </ul>
+    @endif
