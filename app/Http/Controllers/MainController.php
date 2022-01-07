@@ -23,7 +23,7 @@ class MainController extends Controller
     {
         $article = Article::where('slug', $slug)->firstOrFail();
         // on vérifie si on récupère bien l'article
-        dd($article);
+        // dd($article);
         return view('article', [
             'article' => $article
         ]);
