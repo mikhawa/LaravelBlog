@@ -2,9 +2,10 @@
 
 Version 8 de Laravel pour suivre le tuto version blog de https://www.udemy.com/course/le-guide-de-laravel-8
 
-
 ---
+
 ## Navigation
+
 ---
 
 ### V1
@@ -24,6 +25,7 @@ Version 8 de Laravel pour suivre le tuto version blog de https://www.udemy.com/c
 https://github.com/mikhawa/LaravelBlog/tree/V1
 
 ---
+
 ### V2
 
 -   Début du blog
@@ -36,6 +38,7 @@ https://github.com/mikhawa/LaravelBlog/tree/V1
 https://github.com/mikhawa/LaravelBlog/tree/V2
 
 ---
+
 ### V3
 
 -   Bootstrap
@@ -45,6 +48,7 @@ https://github.com/mikhawa/LaravelBlog/tree/V2
 https://github.com/mikhawa/LaravelBlog/tree/V3
 
 ---
+
 ### V4
 
 -   Création du modèle Article
@@ -59,4 +63,13 @@ https://github.com/mikhawa/LaravelBlog/tree/V3
 https://github.com/mikhawa/LaravelBlog/tree/V4
 
 ---
+
 ## V5
+
+#### Observer
+
+Ouvrir la commande :
+
+    php artisan make:observer ArticleObserver --model=Article
+
+Un fichier est créé `app\Observers\ArticleObserver.php`
