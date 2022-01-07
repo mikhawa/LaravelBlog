@@ -117,3 +117,35 @@ On efface les artciles de la DB puis on peut relancer seed
     php artisan db:seed --class=ArticleSeeder
 
 Le DB sera remplie avec des articles dont le slug est créé
+
+#### Helpers
+
+La documentation des multiples helpers:
+
+https://laravel.com/docs/8.x/helpers
+
+On peut récupérer tous les helpers avec composer
+
+    composer require laravel/helpers
+
+puis changer dans `app\Observers\ArticleObserver.php`
+
+    ...
+    use App\Models\Article;
+    use Illuminate\Support\Str;
+
+    class ArticleObserver
+    {
+        /**
+         * Handle the Article "created" event.
+         *
+         * @param  \App\Models\Article  $article
+         * @return void
+         */
+        public function created(Article $article)
+        {
+            // On va sluggifié le titre de l'article avec le helper
+            $article->slug = Str::slug($article->title, '-');
+            $article->save();
+        }
+    ...
