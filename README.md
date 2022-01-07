@@ -204,3 +204,11 @@ On crée ensuite notre vue `resources\views\article.blade.php`
             <p class="text-justify">{{ $article->content }}</p>
         </div>
     @endsection
+
+#### Autentification
+
+On va ouvrir la commande :
+
+    composer require laravel/ui
+
+qui va nous permettre de créer
