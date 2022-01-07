@@ -18,3 +18,7 @@ Route::get('/', [MainController::class, 'home']);
 
 Route::get('/articles', [MainController::class, 'articles'])->name('articles');
 Route::get('/articles/{slug}', [MainController::class, 'show'])->name('article');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

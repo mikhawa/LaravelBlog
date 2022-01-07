@@ -211,4 +211,32 @@ On va ouvrir la commande :
 
     composer require laravel/ui
 
-qui va nous permettre de créer
+qui va nous permettre de créer un système d'authentification ( https://laravel.com/docs/7.x/authentication ici celui de laravel 7, mais encore compatible)
+
+    php artisan ui vue --auth
+
+On indique "non" pour ne pas remplacer `home.blade.php`
+
+ça nous a importé de nombreux fichiers:
+
+commençons par modifier `routes\web.php` en ajoutant cet use:
+
+    ...
+    use Illuminate\Support\Facades\Auth;
+    ...
+
+et en supprimant cette ligne inutile :
+
+    ...
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    ...
+
+Attention de garder ceci:
+
+    ...
+    Auth::routes();
+    ...
+
+Il va permettre le routing de connexion, que l'on peut teste ici:
+
+http://127.0.0.1:8000/login
