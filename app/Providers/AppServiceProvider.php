@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Providers;
-
+//chargement
+use App\Models\Article;
+use App\Observers\ArticleObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Article::observe(ArticleObserver::class);
     }
 }

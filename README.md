@@ -73,3 +73,47 @@ Ouvrir la commande :
     php artisan make:observer ArticleObserver --model=Article
 
 Un fichier est créé `app\Observers\ArticleObserver.php`
+
+Lors de la création d'un article, on souhaîte créer un slug du titre dans notre observer
+
+    public function created(Article $article)
+    {
+        // On va sluggifié le titre de l'article
+        $instance = new Slugify();
+        $article->slug = $instance->slugify($article->title);
+        $article->save();
+    }
+
+Ensuite nous ouvrons `app\Providers\AppServiceProvider.php` pour activer l'observer
+
+    ...
+    namespace App\Providers;
+    //chargement
+    use App\Models\Article;
+    use App\Observers\ArticleObserver;
+    ...
+    public function created(Article $article)
+    {
+        // On va sluggifié le titre de l'article
+        $instance = new Slugify();
+        $article->slug = $instance->slugify($article->title);
+        $article->save();
+    }
+
+Nous pouvons le tester avec tinker:
+
+    php artisan tinker
+    $article = new Article();
+    $article->title = "My title";
+    $article->subtitle = "My subtitle";
+    $article->content = "My content";
+    $article->save();
+    exit;
+
+Puis nous pourvons voir dans notre base de donnée le résultat
+
+On efface les artciles de la DB puis on peut relancer seed
+
+    php artisan db:seed --class=ArticleSeeder
+
+Le DB sera remplie avec des articles dont le slug est créé
