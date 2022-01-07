@@ -219,6 +219,10 @@ On indique "non" pour ne pas remplacer `home.blade.php`
 
 ça nous a importé de nombreux fichiers:
 
+-   modification de la route
+-   modification et création de contrôleurs
+-   modification et création de vues et de ressources
+
 commençons par modifier `routes\web.php` en ajoutant cet use:
 
     ...
@@ -240,3 +244,15 @@ Attention de garder ceci:
 Il va permettre le routing de connexion, que l'on peut teste ici:
 
 http://127.0.0.1:8000/login
+
+##### Modification des vues d'auth
+
+On ouvre `resources\views\auth\login.blade.php` et `resources\views\auth\register.blade.php` et on change
+
+    @extends('layouts.app')
+
+Par
+
+    @extends('base')
+
+Ceci permettant de garder notre design de base.
