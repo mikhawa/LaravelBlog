@@ -205,7 +205,7 @@ On crée ensuite notre vue `resources\views\article.blade.php`
         </div>
     @endsection
 
-#### Autentification
+#### Authentification
 
 On va ouvrir la commande :
 
@@ -238,6 +238,7 @@ et en supprimant cette ligne inutile :
 Attention de garder ceci:
 
     ...
+    // routes liées à l'authentification
     Auth::routes();
     ...
 
@@ -273,18 +274,56 @@ L'insertion se fait bien dans la table `user` et on est redirigé vers /home
 
 dans le fichier `resources\views\include\navbar.blade.php`
 
-    <ul class="navbar-nav ml-auto">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{ route('home') }}">
+        <i class="fas fa-house-user"></i>
+          Accueil</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('articles') }}">Articles</a>
+          </li>
+
+        </ul>
+        <ul class="navbar-nav ml-auto">
             {{-- si la personne est connectée --}}
             @if (Auth::user())
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Déconnexion</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                       <button type="submit" class="btn">Déconnexion</button>
+                    </form>
                 </li>
             @else
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Connexion</a>
+                    <a class="nav-link" href="{{ route('login') }}">
+                        <button type="submit" class="btn">Connexion</button>
+                    </a>
                 </li>
             @endif
 
           </ul>
+      </div>
+    </div>
+    </nav>
 
 On prépare la vue du système de connexion/déconnexion
+
+On ouvre `app\Http\Controllers\Auth\RegisterController.php` et `app\Http\Controllers\Auth\RegisterController.php` et on modifie `$redirectTo` pour rediriger vers l'accueil après une inscription ou une connexion:
+
+    /**
+     * Where to redirect users after registration.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/';
+
+##### Pour voir les routes
+
+Dans la console :
+
+    php artisan route:list
