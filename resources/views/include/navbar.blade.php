@@ -13,7 +13,19 @@
           </li>
           
         </ul>
-
+        <ul class="navbar-nav ml-auto">
+            {{-- si la personne est connectée --}}
+            @if (Auth::user())
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Déconnexion</a>
+                </li>
+            @else
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Connexion</a>
+                </li>
+            @endif
+            
+          </ul>
       </div>
     </div>
   </nav>

@@ -245,6 +245,10 @@ Il va permettre le routing de connexion, que l'on peut teste ici:
 
 http://127.0.0.1:8000/login
 
+et
+
+http://127.0.0.1:8000/register
+
 ##### Modification des vues d'auth
 
 On ouvre `resources\views\auth\login.blade.php` et `resources\views\auth\register.blade.php` et on change
@@ -255,4 +259,32 @@ Par
 
     @extends('base')
 
-Ceci permettant de garder notre design de base.
+Ceci permettant de garder notre design de base sur les 2 URL précédentes.
+
+##### Inscription et connexion automatique
+
+On peut dés à présent s'inscrire à cette adresse :
+
+http://127.0.0.1:8000/register
+
+L'insertion se fait bien dans la table `user` et on est redirigé vers /home
+
+##### Afficher le status connecté/déconnecté
+
+dans le fichier `resources\views\include\navbar.blade.php`
+
+    <ul class="navbar-nav ml-auto">
+            {{-- si la personne est connectée --}}
+            @if (Auth::user())
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Déconnexion</a>
+                </li>
+            @else
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Connexion</a>
+                </li>
+            @endif
+
+          </ul>
+
+On prépare la vue du système de connexion/déconnexion
