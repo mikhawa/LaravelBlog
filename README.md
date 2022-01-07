@@ -149,3 +149,25 @@ puis changer dans `app\Observers\ArticleObserver.php`
             $article->save();
         }
     ...
+
+#### Routes dynamiques
+
+Dans `routes\web.php` on va renommer les chemin et ajouter le {slug} comme paramètre et article au singulier comme nom
+
+    ...
+    Route::get('/articles', [MainController::class, 'articles'])->name('articles');
+    Route::get('/articles/{slug}', [MainController::class, 'show'])->name('article');
+    ...
+
+Dans la vue `resources\views\articles.blade.php` on va changer les liens vers le détail d'un article:
+
+    ...
+    <h5 class="card-title">{{ $article->title }}</h5>
+                    <p class="card-text">{{ $article->subtitle }}</p>
+                    <a href="{{ route('article',$article->slug) }}" class="btn btn-primary">
+                        Lire la suite
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+    ...
+
+On doit ensuite modifier notre `app\Http\Controllers\MainController.php`
